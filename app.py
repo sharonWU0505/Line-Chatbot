@@ -1,7 +1,9 @@
 from flask import Flask, request, abort
 from linebot import LineBotApi, WebhookHandler
 from linebot.exceptions import InvalidSignatureError, LineBotApiError
-from linebot.models import MessageEvent, TextMessage, TextSendMessage, ImageSendMessage
+from linebot.models import (MessageEvent, TextMessage, TextSendMessage,\
+                            ImageSendMessage, TemplateSendMessage, ButtonsTemplate,\
+                            MessageTemplateAction)
 import os
 
 app = Flask(__name__)
@@ -42,24 +44,48 @@ def handle_message(event):
         line_bot_api.reply_message(
             event.reply_token,
             TextSendMessage(text=content))
+        return 0
 
     if event.message.text == 'Hey, talk more about your work experience.':
         content = 'gliacloud'
         line_bot_api.reply_message(
             event.reply_token,
             TextSendMessage(text=content))
+        return 0
 
     if event.message.text == 'Wow! Show me your software development projects.':
         content = 'project'
         line_bot_api.reply_message(
             event.reply_token,
             TextSendMessage(text=content))
+        return 0
 
     if event.message.text == 'Did you join clubs or activities at school?':
         content = 'activities'
         line_bot_api.reply_message(
             event.reply_token,
             TextSendMessage(text=content))
+        return 0
+
+    buttons_template = TemplateSendMessage(
+        alt_text='Are you ready?',
+        template=ButtonsTemplate(
+            title='Are you ready?',
+            text='Choose Yes or No.',
+            thumbnail_image_url='https://i.imgur.com/kzi5kKy.jpg',
+            actions=[
+                MessageTemplateAction(
+                    label='Yes',
+                    text='Yes'
+                ),
+                MessageTemplateAction(
+                    label='No',
+                    text='No'
+                )
+            ]
+        )
+    )
+    line_bot_api.reply_message(event.reply_token, buttons_template)
 
 
 if __name__ == "__main__":
