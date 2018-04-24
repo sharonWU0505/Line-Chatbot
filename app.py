@@ -66,7 +66,7 @@ def handle_message(event):
             template=ButtonsTemplate(
                 title='Internship in Gliacloud',
                 text='I was an intern engineer in Gliacloud.\nSelect topics to know more.',
-                thumbnail_image_url='https://i.imgur.com/tdG3kwI.png',
+                thumbnail_image_url='https://i.imgur.com/3DxUPmi.png',
                 actions=[
                     MessageTemplateAction(
                         label='Gliacloud',
@@ -87,16 +87,12 @@ def handle_message(event):
         return 0
 
     if 'gliacloud' in text:
-        content = 'Gliacloud is a startup developing AI video creation platform. You could find more \
-        information on their website:\nhttps://www.gliacloud.com/'
+        content = 'Gliacloud is a startup developing AI video creation platform. You could find more information on their website:\nhttps://www.gliacloud.com/'
         line_bot_api.reply_message(event.reply_token, TextSendMessage(text=content))
         return 0
 
     if 'achievement' in text:
-        content = '1. Developed and maintained UI of the AI Video Creation Platform and the official website.\n\
-        2. Supported and maintained quality control system based on user feedback.\n\
-        3. Wrote and executed unit tests and system tests for core products.\n\
-        4. Provided sales related support, including demo video production and business model analysis.'
+        content = '1. Developed and maintained UI of the AI Video Creation Platform and the official website.\n2. Supported and maintained quality control system based on user feedback.\n3. Wrote and executed unit tests and system tests for core products.\n4. Provided sales related support, including demo video production and business model analysis.'
         line_bot_api.reply_message(event.reply_token, TextSendMessage(text=content))
         return 0
 
@@ -109,7 +105,7 @@ def handle_message(event):
         message = TemplateSendMessage(
             alt_text='My Works',
             template=ButtonsTemplate(
-                thumbnail_image_url='https://i.imgur.com/tdG3kwI.png',
+                thumbnail_image_url='https://i.imgur.com/nhX3VEW.jpg',
                 title='My Works',
                 text='Yes, I have joined two projects. Select the one you would like to know.',
                 actions=[
@@ -128,29 +124,24 @@ def handle_message(event):
         return 0
 
     if 'up young' in text:
-        content = 'UP YOUNG is a washing machine dealer with many customers. What we do is to \
-        digitize and optimize the workflow of their maintenance staff who have to check whether \
-        each washing machine works well.\n\
-        We developed optimized algorithm for scheduling and traveling route, in order to suggest \
-        best schedule for maintenance staff members.'
+        content = 'UP YOUNG is a washing machine dealer with many customers.\n\nWhat we do is to digitize and optimize the workflow of their maintenance staff who have to check whether each washing machine works well.\n\nWe developed optimized algorithm for scheduling and traveling route, in order to suggest best schedule for maintenance staff members.'
         line_bot_api.reply_message(event.reply_token, TextSendMessage(text=content))
         return 0
 
     if 'trisoap' in text:
-        content = 'Trisoap is a brand dedicated to sale soap made by mentally retarded children.\n\
-        We collected their system demand by face-to-face interview and designed an appropriate system.\n\
-        Finally, we developed the online purchasing system, including connecting with \
-        third-party payment service and build admin interface for managers.'
+        tri_content = 'Trisoap is a brand dedicated to sale soap made by mentally retarded children.\nWe collected their system demand by face-to-face interview and designed an appropriate system.\nFinally, we developed the online purchasing system, including connecting with third-party payment service and build admin interface for managers.'
+        link = 'You can see the website here:\nhttps://www.trisoap.com.tw/'
+        content = '{}\n\n{}'.format(tri_content, link)
         line_bot_api.reply_message(event.reply_token, TextSendMessage(text=content))
         return 0
 
     if 'this might be something interesting in your school life' in text:
         message = TemplateSendMessage(
-            alt_text='Extracurricular Activities',
+            alt_text='It\'s film about my extracurricular activities.',
             template=ButtonsTemplate(
                 thumbnail_image_url='https://i.imgur.com/oSKlcJi.jpg',
-                title='Extracurricular Activities',
-                text='Select the one you would like to know.',
+                title='It\'s film about my extracurricular activities.',
+                text='Select the part you would like to know.',
                 actions=[
                     MessageTemplateAction(
                         label='Art Exhibition',
@@ -167,35 +158,30 @@ def handle_message(event):
         return 0
 
     if 'art exhibition' in text:
-        artfest_content = '[Tech Art Exhibition of 23th NTUArtFest]\n\
-        I was the curator of the Tech Art Exhibition. I led a team to plan a contemporary dance \
-        display that demonstrated a world controlled by digits and people couldn\'t follow their minds.'
-        funpark_content = '[10th Very Fun Park]\n\
-        I was a guide and an exhibition assistant of Very Fun Park held by Fubonart and National \
-        Taiwan University. I introduced art works to visitors and helped artists to arrange \
-        exhibition and dismantled displayed items.'
+        artfest_content = '[Tech Art Exhibition of 23th NTUArtFest]\nI was the curator of the Tech Art Exhibition.\nI led a team to plan a contemporary dance display that demonstrated a world controlled by digits and people couldn\'t follow their minds.'
+        funpark_content = '[10th Very Fun Park]\nI was a guide and an exhibition assistant of Very Fun Park held by Fubonart and National Taiwan University.\nI introduced art works to visitors and helped artists to arrange exhibition and dismantled displayed items.'
         content = '{}\n\n{}'.format(artfest_content, funpark_content)
         line_bot_api.reply_message(event.reply_token, TextSendMessage(text=content))
         return 0
 
     if 'volunteer club' in text:
-        content = 'I joined the volunteer club for autism children and the volunteer club for children with cancer. \
-        I worked with people from different backgrounds to plan events like summer camp for those children \
-        and their family, which make them relax and connect more with each other.'
+        clubs = 'I joined the volunteer club for autism children and the volunteer club for children with cancer.'
+        work = 'I worked with people from different backgrounds to plan events like summer camp for those children and their family, which make them relax and connect more with each other.'
+        content = '{}\n\n{}'.format(clubs, work)
         line_bot_api.reply_message(event.reply_token, TextSendMessage(text=content))
         return 0
 
     if 'know more about you' in text:
         message = TemplateSendMessage(
-            alt_text='To know more?',
+            alt_text='Yah, ready to know more?',
             template=ButtonsTemplate(
-                thumbnail_image_url='https://i.imgur.com/oSKlcJi.jpg',
-                title='To know more?',
+                thumbnail_image_url='https://i.imgur.com/zjN1Pul.jpg',
+                title='Yah, ready to know more?',
                 text='Please select.',
                 actions=[
                     MessageTemplateAction(
-                        label='Motto',
-                        text='Motto'
+                        label='My Motto',
+                        text='My Motto'
                     ),
                     MessageTemplateAction(
                         label='Second Languages',
@@ -208,12 +194,9 @@ def handle_message(event):
         return 0
 
     if 'motto' in text:
-        content = 'To see the world, things dangerous to come to,\n\
-        to see behind walls, draw closer, \n\
-        to find each other and to feel. \n\
-        That is the purpose of life.\n\n\
-        This is my favorite sentence. And I believe technology should have the ability \
-        to help people achieve this goal.'
+        motto = 'To see the world, things dangerous to come to, to see behind walls, draw closer, to find each other and to feel. That is the purpose of life.'
+        sen_content = 'This is my favorite sentence. And I believe technology should have the ability to help people achieve this goal.'
+        content = '{}\n\n{}'.format(motto, sen_content)
         line_bot_api.reply_message(event.reply_token, TextSendMessage(text=content))
         return 0
 
@@ -223,7 +206,7 @@ def handle_message(event):
         return 0
 
     if 'korean' in text:
-        content = '안녕하세요. 저는 오아선 이에요\n Hello, I am Wu Ya-Syuan.'
+        content = '안녕하세요. 저는 오아선 이에요.\nIt means "Hello, I am Wu Ya-Syuan."'
         line_bot_api.reply_message(event.reply_token, TextSendMessage(text=content))
         return 0
 
@@ -233,10 +216,10 @@ def handle_message(event):
         return 0
 
     message = TemplateSendMessage(
-        alt_text='Choose a movie to watch.',
+        alt_text='Chat with me by choosing a movie.',
         template=ButtonsTemplate(
-            thumbnail_image_url='https://example.com/image.jpg',
-            title='Choose a movie to watch.',
+            thumbnail_image_url='https://i.imgur.com/Hjho3XV.jpg',
+            title='Chat with me by choosing a movie.',
             text='Please select.',
             actions=[
                 MessageTemplateAction(
