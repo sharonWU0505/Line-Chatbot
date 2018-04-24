@@ -64,9 +64,9 @@ def handle_message(event):
         message = TemplateSendMessage(
             alt_text='Internship in Gliacloud',
             template=ButtonsTemplate(
-                thumbnail_image_url='https://i.imgur.com/zjN1Pul.jpg',
+                thumbnail_image_url='https://i.imgur.com/3DxUPmi.jpg',
                 title='Internship in Gliacloud',
-                text='Select topics you like.',
+                text='Select a topic you like',
                 actions=[
                     MessageTemplateAction(
                         label='Gliacloud',
@@ -105,9 +105,9 @@ def handle_message(event):
         message = TemplateSendMessage(
             alt_text='My Works',
             template=ButtonsTemplate(
-                thumbnail_image_url='https://i.imgur.com/zjN1Pul.jpg',
+                thumbnail_image_url='https://i.imgur.com/nhX3VEW.jpg',
                 title='My Works',
-                text='Select to know these projects.',
+                text='Select a project',
                 actions=[
                     MessageTemplateAction(
                         label='UP YOUNG Maintenance Staff System',
@@ -144,8 +144,8 @@ def handle_message(event):
             alt_text='Extracurricular Activities',
             template=ButtonsTemplate(
                 title='Extracurricular Activities',
-                text='Please select.',
-                thumbnail_image_url='https://i.imgur.com/zjN1Pul.jpg',
+                text='Please select',
+                thumbnail_image_url='https://i.imgur.com/oSKlcJi.jpg',
                 actions=[
                     MessageTemplateAction(
                         label='Art Exhibition',
@@ -225,7 +225,7 @@ def handle_message(event):
             template=ButtonsTemplate(
                 thumbnail_image_url='https://i.imgur.com/zjN1Pul.jpg',
                 title='Chat we me by...',
-                text='Choosing a movie',
+                text='Choose a movie',
                 actions=[
                     MessageTemplateAction(
                         label='The Study Diaries',
