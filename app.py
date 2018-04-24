@@ -61,7 +61,7 @@ def handle_message(event):
         return 0
 
     if 'intern' in text or 'internship' in text:
-        message = TemplateSendMessage(
+        buttons_template = TemplateSendMessage(
             alt_text='Internship in Gliacloud',
             template=ButtonsTemplate(
                 thumbnail_image_url='https://i.imgur.com/tdG3kwI.png',
@@ -83,7 +83,7 @@ def handle_message(event):
                 ]
             )
         )
-        line_bot_api.reply_message(event.reply_token, message)
+        line_bot_api.reply_message(event.reply_token, buttons_template)
         return 0
 
     if 'gliacloud' in text:
@@ -97,12 +97,12 @@ def handle_message(event):
                    2. Supported and maintained quality control system based on user feedback.\n \
                    3. Wrote and executed unit tests and system tests for core products.\n \
                    4. Provided sales related support, including demo video production and business model analysis.'
-        line_bot_api.reply_message(event.reply_token, TextSendMessage(text=content)
+        line_bot_api.reply_message(event.reply_token, TextSendMessage(text=content))
         return 0
 
     if 'reflection' in text:
         content = 'I\'m very happy and also thankful for having the chance to apply what I learned to the real world.'
-        line_bot_api.reply_message(event.reply_token, TextSendMessage(text=content)
+        line_bot_api.reply_message(event.reply_token, TextSendMessage(text=content))
         return 0
     #
     # if 'project' in text:
@@ -133,7 +133,7 @@ def handle_message(event):
     #               each washing machine works well.\n \
     #               We developed optimized algorithm for scheduling and traveling route, in order to suggest \
     #               best schedule for maintenance staff members.'
-    #     line_bot_api.reply_message(event.reply_token, TextSendMessage(text=content)
+    #     line_bot_api.reply_message(event.reply_token, TextSendMessage(text=content))
     #     return 0
     #
     # if 'trisoap' in text:
@@ -141,7 +141,7 @@ def handle_message(event):
     #                We collected their system demand by face-to-face interview and designed an appropriate system.\n \
     #                Finally, we developed the online purchasing system, including connecting with \
     #                third-party payment service and build admin interface for managers.'
-    #     line_bot_api.reply_message(event.reply_token, TextSendMessage(text=content)
+    #     line_bot_api.reply_message(event.reply_token, TextSendMessage(text=content))
     #     return 0
     #
     # if 'this might be something interesting in your school life' in text:
@@ -175,14 +175,14 @@ def handle_message(event):
     #                        Taiwan University. I introduced art works to visitors and helped artists to arrange \
     #                        exhibition and dismantled displayed items.'
     #     content = '{}\n\n{}'.format(artfest_content, funpark_content)
-    #     line_bot_api.reply_message(event.reply_token, TextSendMessage(text=content)
+    #     line_bot_api.reply_message(event.reply_token, TextSendMessage(text=content))
     #     return 0
     #
     # if 'volunteer club' in text:
     #     content = 'I joined the volunteer club for autism children and the volunteer club for children with cancer. \
     #                I worked with people from different backgrounds to plan events like summer camp for those children \
     #                and their family, which make them relax and connect more with each other.'
-    #     line_bot_api.reply_message(event.reply_token, TextSendMessage(text=content)
+    #     line_bot_api.reply_message(event.reply_token, TextSendMessage(text=content))
     #     return 0
     #
     # if 'know more about you' in text:
@@ -214,17 +214,17 @@ def handle_message(event):
     #                That is the purpose of life.\n\n \
     #                This is my favorite sentence. And I believe technology should have the ability \
     #                to help people achieve this goal.'
-    #     line_bot_api.reply_message(event.reply_token, TextSendMessage(text=content)
+    #     line_bot_api.reply_message(event.reply_token, TextSendMessage(text=content))
     #     return 0
     #
     # if 'second language' in text:
     #     content = 'English: fluent\nKorean: basic'
-    #     line_bot_api.reply_message(event.reply_token, TextSendMessage(text=content)
+    #     line_bot_api.reply_message(event.reply_token, TextSendMessage(text=content))
     #     return 0
     #
     # if 'korean' in text:
     #     content = '안녕하세요. 저는 오아선 이에요\n Hello, I am Wu Ya-Syuan.'
-    #     line_bot_api.reply_message(event.reply_token, TextSendMessage(text=content)
+    #     line_bot_api.reply_message(event.reply_token, TextSendMessage(text=content))
     #     return 0
     #
     # if 'contact' in text or 'communicat' in text or 'phone' in text or 'email' in text:
