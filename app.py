@@ -107,7 +107,7 @@ def handle_message(event):
             template=ButtonsTemplate(
                 thumbnail_image_url='https://i.imgur.com/nhX3VEW.jpg',
                 title='My Works',
-                text='Select a project',
+                text='Pleas select',
                 actions=[
                     MessageTemplateAction(
                         label='UP YOUNG Maintenance Staff System',
@@ -181,11 +181,11 @@ def handle_message(event):
             template=ButtonsTemplate(
                 thumbnail_image_url='https://i.imgur.com/zjN1Pul.jpg',
                 title='Yah, ready to know more?',
-                text='Please select.',
+                text='Please select',
                 actions=[
                     MessageTemplateAction(
-                        label='My Motto',
-                        text='My Motto'
+                        label='Motto',
+                        text='Motto'
                     ),
                     MessageTemplateAction(
                         label='Second Languages',
@@ -221,11 +221,11 @@ def handle_message(event):
 
     else:
         message = TemplateSendMessage(
-            alt_text='Chat we me by...',
+            alt_text='Chat with me',
             template=ButtonsTemplate(
                 thumbnail_image_url='https://i.imgur.com/zjN1Pul.jpg',
-                title='Chat we me by...',
-                text='Choose a movie',
+                title='Chat with me',
+                text='Choose one',
                 actions=[
                     MessageTemplateAction(
                         label='The Study Diaries',
