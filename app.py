@@ -215,41 +215,44 @@ def handle_message(event):
         line_bot_api.reply_message(event.reply_token, TextSendMessage(text=content))
         return 0
 
-    message = TemplateSendMessage(
-        alt_text='Chat with me by...',
-        template=ButtonsTemplate(
-            thumbnail_image_url='https://i.imgur.com/Hjho3XV.jpg',
-            title='Chat with me by...',
-            text='Choose a movie',
-            actions=[
-                MessageTemplateAction(
-                    label='Study Diaries',
-                    text='The Study Diaries'
-                ),
-                MessageTemplateAction(
-                    label='The Intern',
-                    text='The Intern'
-                ),
-                MessageTemplateAction(
-                    label='Project Hunting',
-                    text='Project Hunting'
-                ),
-                MessageTemplateAction(
-                    label='School Musical',
-                    text='School Musical'
-                ),
-                MessageTemplateAction(
-                    label='Is Not Enough',
-                    text='Is Not Enough'
-                ),
-                MessageTemplateAction(
-                    label='Contact',
-                    text='Contact'
-                ),
-            ]
-        )
-    )
-    line_bot_api.reply_message(event.reply_token, message)
+    content = 'Nice to meet you.\nPlease chat with me by choosing a movie from the menu.'
+    line_bot_api.reply_message(event.reply_token, TextSendMessage(text=content))
+
+    # message = TemplateSendMessage(
+    #     alt_text='Chat with me by...',
+    #     template=ButtonsTemplate(
+    #         thumbnail_image_url='https://i.imgur.com/Hjho3XV.jpg',
+    #         title='Chat with me by...',
+    #         text='Choose a movie',
+    #         actions=[
+    #             MessageTemplateAction(
+    #                 label='Study Diaries',
+    #                 text='The Study Diaries'
+    #             ),
+    #             MessageTemplateAction(
+    #                 label='The Intern',
+    #                 text='The Intern'
+    #             ),
+    #             MessageTemplateAction(
+    #                 label='Project Hunting',
+    #                 text='Project Hunting'
+    #             ),
+    #             MessageTemplateAction(
+    #                 label='School Musical',
+    #                 text='School Musical'
+    #             ),
+    #             MessageTemplateAction(
+    #                 label='Is Not Enough',
+    #                 text='Is Not Enough'
+    #             ),
+    #             MessageTemplateAction(
+    #                 label='Contact',
+    #                 text='Contact'
+    #             ),
+    #         ]
+    #     )
+    # )
+    # line_bot_api.reply_message(event.reply_token, message)
 
 
 if __name__ == "__main__":
