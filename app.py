@@ -46,64 +46,64 @@ def handle_message(event):
         mba_content = 'And I\'m now in the first year of the MBA degree of Information Management from National \
                        Taiwan University.'
         res_content = 'My research focuses on the resource allocation problem of 5G network.'
-        content = 'This is a film about my education.\n\n Here\'s the introduction:\n\n \
-                   {}\n\n{}\n\n{}'.format(bac_content, mba_content, res_content)
+        content = 'This is a film about my education.\n\nHere\'s the introduction:\n\n{}\n\n{}\n\n{}'.format(
+            bac_content, mba_content, res_content)
         line_bot_api.reply_message(event.reply_token, TextSendMessage(text=content))
         return 0
 
     if 'research' in text or '5G' in text or 'network' in text:
         res_content = '5G network is known for its centralized structure, which makes it more flexible to meet \
-                   heterogeneous demand. However, the way to allocate resource remains a problem.\nSo \
-                   I aim to design suitable allocation scheme for different scenarios.'
+                       heterogeneous demand. However, the way to allocate resource remains a problem.\nSo \
+                       I aim to design suitable allocation scheme for different scenarios.'
         link = 'Know more about 5G network: https://en.wikipedia.org/wiki/5G'
         content = '{}\n\n{}'.format(res_content, link)
         line_bot_api.reply_message(event.reply_token, TextSendMessage(text=content))
         return 0
 
-    # if 'intern' in text or 'internship' in text:
-    #     message = TemplateSendMessage(
-    #         alt_text='Internship in Gliacloud',
-    #         template=ButtonsTemplate(
-    #             thumbnail_image_url='https://i.imgur.com/tdG3kwI.png',
-    #             title='Internship in Gliacloud',
-    #             text='I was an intern enginner in Gliacloud.\nSelect topics to know more.',
-    #             actions=[
-    #                 MessageTemplateAction(
-    #                     label='Gliacloud',
-    #                     text='Tell me more about Gliacloud.'
-    #                 ),
-    #                 MessageTemplateAction(
-    #                     label='Achievements',
-    #                     text='Tell me your achievements.'
-    #                 ),
-    #                 MessageTemplateAction(
-    #                     label='Reflection',
-    #                     text='Tell me your reflection.'
-    #                 )
-    #             ]
-    #         )
-    #     )
-    #     line_bot_api.reply_message(event.reply_token, message)
-    #     return 0
-    #
-    # if 'gliacloud' in text:
-    #     content = 'Gliacloud is a startup developing AI video creation platform. You could find more \
-    #                information on their website: https://www.gliacloud.com/'
-    #     line_bot_api.reply_message(event.reply_token, TextSendMessage(text=content))
-    #     return 0
-    #
-    # if 'achievement' in text:
-    #     content = '1. Developed and maintained UI of the AI Video Creation Platform and the official website.\n \
-    #                2. Supported and maintained quality control system based on user feedback.\n \
-    #                3. Wrote and executed unit tests and system tests for core products.\n \
-    #                4. Provided sales related support, including demo video production and business model analysis.'
-    #     line_bot_api.reply_message(event.reply_token, TextSendMessage(text=content)
-    #     return 0
-    #
-    # if 'reflection' in text:
-    #     content = 'I\'m very happy and also thankful for having the chance to apply what I learned to the real world.'
-    #     line_bot_api.reply_message(event.reply_token, TextSendMessage(text=content)
-    #     return 0
+    if 'intern' in text or 'internship' in text:
+        message = TemplateSendMessage(
+            alt_text='Internship in Gliacloud',
+            template=ButtonsTemplate(
+                thumbnail_image_url='https://i.imgur.com/tdG3kwI.png',
+                title='Internship in Gliacloud',
+                text='I was an intern enginner in Gliacloud.\nSelect topics to know more.',
+                actions=[
+                    MessageTemplateAction(
+                        label='Gliacloud',
+                        text='Tell me more about Gliacloud.'
+                    ),
+                    MessageTemplateAction(
+                        label='Achievements',
+                        text='Tell me your achievements.'
+                    ),
+                    MessageTemplateAction(
+                        label='Reflection',
+                        text='Tell me your reflection.'
+                    )
+                ]
+            )
+        )
+        line_bot_api.reply_message(event.reply_token, message)
+        return 0
+
+    if 'gliacloud' in text:
+        content = 'Gliacloud is a startup developing AI video creation platform. You could find more \
+                   information on their website: https://www.gliacloud.com/'
+        line_bot_api.reply_message(event.reply_token, TextSendMessage(text=content))
+        return 0
+
+    if 'achievement' in text:
+        content = '1. Developed and maintained UI of the AI Video Creation Platform and the official website.\n \
+                   2. Supported and maintained quality control system based on user feedback.\n \
+                   3. Wrote and executed unit tests and system tests for core products.\n \
+                   4. Provided sales related support, including demo video production and business model analysis.'
+        line_bot_api.reply_message(event.reply_token, TextSendMessage(text=content)
+        return 0
+
+    if 'reflection' in text:
+        content = 'I\'m very happy and also thankful for having the chance to apply what I learned to the real world.'
+        line_bot_api.reply_message(event.reply_token, TextSendMessage(text=content)
+        return 0
     #
     # if 'project' in text:
     #     message = TemplateSendMessage(
