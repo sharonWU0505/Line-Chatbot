@@ -33,28 +33,33 @@ def callback():
     return 'OK'
 
 
-# get user name
-try:
-    profile = line_bot_api.get_profile(user_id)
-    print(profile.display_name)
-    print(profile.user_id)
-    print(profile.picture_url)
-    print(profile.status_message)
-    name = profile.display_name
-except LineBotApiError as e:
-    name = 'friend'
-
-
-# push message to one user
-hello_message = TextSendMessage(text='Dear {}, I will talk about myself to let \
-                                you know more about me.'.format(name))
-line_bot_api.push_message(user_id, hello_message)
-
-
 @handler.add(MessageEvent, message=TextMessage)
 def handle_message(event):
-    message = TextSendMessage(text=event.message.text)
-    line_bot_api.reply_message(event.reply_token, message)
+    # message = TextSendMessage(text=event.message.text)
+    # line_bot_api.reply_message(event.reply_token, message)
+    if event.message.text == 'Let\'s see your educational background.':
+        content = 'education'
+        line_bot_api.reply_message(
+            event.reply_token,
+            TextSendMessage(text=content))
+
+    if event.message.text == 'Hey, talk more about your work experience.':
+        content = 'gliacloud'
+        line_bot_api.reply_message(
+            event.reply_token,
+            TextSendMessage(text=content))
+
+    if event.message.text == 'Wow! Show me your software development projects.':
+        content = 'project'
+        line_bot_api.reply_message(
+            event.reply_token,
+            TextSendMessage(text=content))
+
+    if event.message.text == 'Did you join clubs or activities at school?':
+        content = 'activities'
+        line_bot_api.reply_message(
+            event.reply_token,
+            TextSendMessage(text=content))
 
 
 if __name__ == "__main__":
