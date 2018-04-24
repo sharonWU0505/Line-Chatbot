@@ -223,7 +223,7 @@ def handle_message(event):
             text='Choose a movie',
             actions=[
                 MessageTemplateAction(
-                    label='The Study Diaries',
+                    label='Study Diaries',
                     text='The Study Diaries'
                 ),
                 MessageTemplateAction(
