@@ -61,53 +61,29 @@ def handle_message(event):
         return 0
 
     if 'intern' in text or 'internship' in text:
-        # buttons_template = TemplateSendMessage(
-        #     alt_text='Internship in Gliacloud',
-        #     template=ButtonsTemplate(
-        #         thumbnail_image_url='https://i.imgur.com/tdG3kwI.png',
-        #         title='Internship in Gliacloud',
-        #         text='I was an intern enginner in Gliacloud.\nSelect topics to know more.',
-        #         actions=[
-        #             MessageTemplateAction(
-        #                 label='Gliacloud',
-        #                 text='Tell me more about Gliacloud.'
-        #             ),
-        #             MessageTemplateAction(
-        #                 label='Achievements',
-        #                 text='Tell me your achievements.'
-        #             ),
-        #             MessageTemplateAction(
-        #                 label='Reflection',
-        #                 text='Tell me your reflection.'
-        #             )
-        #         ]
-        #     )
-        # )
-        # line_bot_api.reply_message(event.reply_token, buttons_template)
-        # return 0
-        buttons_template = TemplateSendMessage(
-            alt_text='template',
+        message = TemplateSendMessage(
+            alt_text='Internship in Gliacloud',
             template=ButtonsTemplate(
-                title='選擇服務',
-                text='請選擇',
-                thumbnail_image_url='https://i.imgur.com/qKkE2bj.jpg',
+                title='Internship in Gliacloud',
+                text='I was an intern engineer in Gliacloud.\nSelect topics to know more.',
+                thumbnail_image_url='https://i.imgur.com/tdG3kwI.png',
                 actions=[
                     MessageTemplateAction(
-                        label='test1',
-                        text='test1'
+                        label='Gliacloud',
+                        text='Tell me more about Gliacloud.'
                     ),
                     MessageTemplateAction(
-                        label='test2',
-                        text='test2'
+                        label='Achievements',
+                        text='Tell me your achievements.'
                     ),
                     MessageTemplateAction(
-                        label='test3',
-                        text='test3'
+                        label='Reflection',
+                        text='Tell me your reflection.'
                     )
                 ]
             )
         )
-        line_bot_api.reply_message(event.reply_token, buttons_template)
+        line_bot_api.reply_message(event.reply_token, message)
         return 0
 
     if 'gliacloud' in text:
@@ -129,27 +105,27 @@ def handle_message(event):
         line_bot_api.reply_message(event.reply_token, TextSendMessage(text=content))
         return 0
 
-    # if 'project' in text:
-    #     message = TemplateSendMessage(
-    #         alt_text='My Works',
-    #         template=ButtonsTemplate(
-    #             thumbnail_image_url='https://i.imgur.com/tdG3kwI.png',
-    #             title='My Works',
-    #             text='Yes, I have joined two projects. Select the one you would like to know.',
-    #             actions=[
-    #                 MessageTemplateAction(
-    #                     label='UP YOUNG Maintenance Staff System',
-    #                     text='UP YOUNG Maintenance Staff System'
-    #                 ),
-    #                 MessageTemplateAction(
-    #                     label='Trisoap Sales System',
-    #                     text='Trisoap Sales System'
-    #                 )
-    #             ]
-    #         )
-    #     )
-    #     line_bot_api.reply_message(event.reply_token, message)
-    #     return 0
+    if 'project' in text:
+        message = TemplateSendMessage(
+            alt_text='My Works',
+            template=ButtonsTemplate(
+                thumbnail_image_url='https://i.imgur.com/tdG3kwI.png',
+                title='My Works',
+                text='Yes, I have joined two projects. Select the one you would like to know.',
+                actions=[
+                    MessageTemplateAction(
+                        label='UP YOUNG Maintenance Staff System',
+                        text='UP YOUNG Maintenance Staff System'
+                    ),
+                    MessageTemplateAction(
+                        label='Trisoap Sales System',
+                        text='Trisoap Sales System'
+                    )
+                ]
+            )
+        )
+        line_bot_api.reply_message(event.reply_token, message)
+        return 0
 
     if 'up young' in text:
         content = 'UP YOUNG is a washing machine dealer with many customers. What we do is to \
@@ -168,27 +144,27 @@ def handle_message(event):
         line_bot_api.reply_message(event.reply_token, TextSendMessage(text=content))
         return 0
 
-    # if 'this might be something interesting in your school life' in text:
-    #     message = TemplateSendMessage(
-    #         alt_text='Extracurricular Activities',
-    #         template=ButtonsTemplate(
-    #             thumbnail_image_url='https://i.imgur.com/oSKlcJi.jpg',
-    #             title='Extracurricular Activities',
-    #             text='Select the one you would like to know.',
-    #             actions=[
-    #                 MessageTemplateAction(
-    #                     label='Art Exhibition',
-    #                     text='Art Exhibition'
-    #                 ),
-    #                 MessageTemplateAction(
-    #                     label='Volunteer Clubs',
-    #                     text='Volunteer Clubs'
-    #                 )
-    #             ]
-    #         )
-    #     )
-    #     line_bot_api.reply_message(event.reply_token, message)
-    #     return 0
+    if 'this might be something interesting in your school life' in text:
+        message = TemplateSendMessage(
+            alt_text='Extracurricular Activities',
+            template=ButtonsTemplate(
+                thumbnail_image_url='https://i.imgur.com/oSKlcJi.jpg',
+                title='Extracurricular Activities',
+                text='Select the one you would like to know.',
+                actions=[
+                    MessageTemplateAction(
+                        label='Art Exhibition',
+                        text='Art Exhibition'
+                    ),
+                    MessageTemplateAction(
+                        label='Volunteer Clubs',
+                        text='Volunteer Clubs'
+                    )
+                ]
+            )
+        )
+        line_bot_api.reply_message(event.reply_token, message)
+        return 0
 
     if 'art exhibition' in text:
         artfest_content = '[Tech Art Exhibition of 23th NTUArtFest]\n\
@@ -209,27 +185,27 @@ def handle_message(event):
         line_bot_api.reply_message(event.reply_token, TextSendMessage(text=content))
         return 0
 
-    # if 'know more about you' in text:
-    #     message = TemplateSendMessage(
-    #         alt_text='To know more?',
-    #         template=ButtonsTemplate(
-    #             thumbnail_image_url='https://i.imgur.com/oSKlcJi.jpg',
-    #             title='To know more?',
-    #             text='Please select.',
-    #             actions=[
-    #                 MessageTemplateAction(
-    #                     label='Motto',
-    #                     text='Motto'
-    #                 ),
-    #                 MessageTemplateAction(
-    #                     label='Second Languages',
-    #                     text='Second Languages'
-    #                 )
-    #             ]
-    #         )
-    #     )
-    #     line_bot_api.reply_message(event.reply_token, message)
-    #     return 0
+    if 'know more about you' in text:
+        message = TemplateSendMessage(
+            alt_text='To know more?',
+            template=ButtonsTemplate(
+                thumbnail_image_url='https://i.imgur.com/oSKlcJi.jpg',
+                title='To know more?',
+                text='Please select.',
+                actions=[
+                    MessageTemplateAction(
+                        label='Motto',
+                        text='Motto'
+                    ),
+                    MessageTemplateAction(
+                        label='Second Languages',
+                        text='Second Languages'
+                    )
+                ]
+            )
+        )
+        line_bot_api.reply_message(event.reply_token, message)
+        return 0
 
     if 'motto' in text:
         content = 'To see the world, things dangerous to come to,\n\
