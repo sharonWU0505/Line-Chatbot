@@ -38,23 +38,21 @@ def callback():
 
 @handler.add(MessageEvent, message=TextMessage)
 def handle_message(event):
-    text = event.message.text
+    text = event.message.text.lower()
 
     if 'education' in text or 'study' in text or 'studies' in text:
         bachelor_content = 'I got the bachelor\'s degree of Information Management from National Taiwan University \
                             in June 2017.'
-        line_bot_api.reply_message(event.reply_token, TextSendMessage(text=bachelor_content))
-
-        bachelor_img = ImageSendMessage(
-            original_content_url='https://i.imgur.com/u7o9RNH.jpg',
-            preview_image_url='https://i.imgur.com/u7o9RNH.jpg'
-        )
-        line_bot_api.reply_message(event.reply_token, bachelor_img)
-
         mba_content = 'And I\'m now in the first year of the MBA degree of Information Management from National \
                        Taiwan University. My research focuses on the resource allocation problem of 5G network.'
-        line_bot_api.reply_message(event.reply_token, TextSendMessage(text=mba_content))
+        content = '{}\n{}'.format(bachelor_content, mba_content)
+        line_bot_api.reply_message(event.reply_token, TextSendMessage(text=content))
 
+        return 0
+
+    if 'contact' in text or 'communicat' in text:
+        content = 'Contact me by:\nEmail: astrumstella048@gmail.com\nPhone: +886 975669869'
+        line_bot_api.reply_message(event.reply_token, TextSendMessage(text=content))
         return 0
 
     if 'research' in text or '5G' in text or 'network' in text:
@@ -62,19 +60,19 @@ def handle_message(event):
         line_bot_api.reply_message(event.reply_token, TextSendMessage(text=research_content))
         return 0
 
-    if 'intern' in text:
-        intern_content = 'I was an intern engineer in Gliacloud.'
-        line_bot_api.reply_message(event.reply_token, TextSendMessage(text=intern_content))
-
-        glia_content = 'Gliacloud is a startup developing AI video creation platform. You could find more \
-                        information on their website: https://www.gliacloud.com/'
-        line_bot_api.reply_message(event.reply_token, TextSendMessage(text=glia_content))
-
-        glia_work = 'I developed and maintained UI for their video creation platform and the QC system. \
-                     I also did test automation. Moreover, I sometimes provided sales related support \
-                     such as business model analysis.'
-
-        line_bot_api.reply_message(event.reply_token, TextSendMessage(text=glia_work))
+    # if 'intern' in text:
+    #     intern_content = 'I was an intern engineer in Gliacloud.'
+    #     line_bot_api.reply_message(event.reply_token, TextSendMessage(text=intern_content))
+    #
+    #     glia_content = 'Gliacloud is a startup developing AI video creation platform. You could find more \
+    #                     information on their website: https://www.gliacloud.com/'
+    #     line_bot_api.reply_message(event.reply_token, TextSendMessage(text=glia_content))
+    #
+    #     glia_work = 'I developed and maintained UI for their video creation platform and the QC system. \
+    #                  I also did test automation. Moreover, I sometimes provided sales related support \
+    #                  such as business model analysis.'
+    #
+    #     line_bot_api.reply_message(event.reply_token, TextSendMessage(text=glia_work))
 
         # glia_buttons_template = TemplateSendMessage(
         #     alt_text='Do you want to see some pictures?',
@@ -96,43 +94,59 @@ def handle_message(event):
         # )
         # line_bot_api.reply_message(event.reply_token, glia_buttons_template)
 
-        return 0
+    #     return 0
+    #
+    # # if 'Yes, show me some pictures.' in text:
+    #
+    # if event.message.text == 'Wow! Show me your software development projects.':
+    #     content = 'project'
+    #     line_bot_api.reply_message(
+    #         event.reply_token,
+    #         TextSendMessage(text=content))
+    #     return 0
+    #
+    # if event.message.text == 'Did you join clubs or activities at school?':
+    #     content = 'activities'
+    #     line_bot_api.reply_message(
+    #         event.reply_token,
+    #         TextSendMessage(text=content))
+    #     return 0
 
-    # if 'Yes, show me some pictures.' in text:
-
-    if event.message.text == 'Wow! Show me your software development projects.':
-        content = 'project'
-        line_bot_api.reply_message(
-            event.reply_token,
-            TextSendMessage(text=content))
-        return 0
-
-    if event.message.text == 'Did you join clubs or activities at school?':
-        content = 'activities'
-        line_bot_api.reply_message(
-            event.reply_token,
-            TextSendMessage(text=content))
-        return 0
-
-    buttons_template = TemplateSendMessage(
-        alt_text='Are you ready?',
+    message = TemplateSendMessage(
+        alt_text='Choose a movie to watch.',
         template=ButtonsTemplate(
-            title='Are you ready?',
-            text='Choose Yes or No.',
-            # thumbnail_image_url='https://i.imgur.com/kzi5kKy.jpg',
+            thumbnail_image_url='https://example.com/image.jpg',
+            title='Choose a movie to watch.',
+            text='Please select.',
             actions=[
                 MessageTemplateAction(
-                    label='Yes',
-                    text='Yes'
+                    label='The Study Diaries',
+                    text='Let\'s see your educational background.'
                 ),
                 MessageTemplateAction(
-                    label='No',
-                    text='No'
-                )
+                    label='The Intern',
+                    text='Hey, talk more about your last internship.'
+                ),
+                MessageTemplateAction(
+                    label='Project Hunting',
+                    text='Wow! Show me projects you\'ve made.'
+                ),
+                MessageTemplateAction(
+                    label='College Musical',
+                    text='Did you join clubs or activities at school?'
+                ),
+                MessageTemplateAction(
+                    label='Way of the Motto',
+                    text='Share your motto with me.'
+                ),
+                MessageTemplateAction(
+                    label='Contact',
+                    text='How can I contact you?'
+                ),
             ]
         )
     )
-    line_bot_api.reply_message(event.reply_token, buttons_template)
+    line_bot_api.reply_message(event.reply_token, message)
 
 
 if __name__ == "__main__":
