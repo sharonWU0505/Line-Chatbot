@@ -10,6 +10,8 @@ app = Flask(__name__)
 line_bot_api = LineBotApi('6ZldQ8v/2TGnZnzzPRLw6N/UIggRBS90jwXHmwuL+1rdV9fAotZ6SkJrCivb7v3v7hAxvFP/37qeFPomFDceKMzOGBkBbzrkcK0bO173AfqE/4b/3qWw2iF+hlMyWwIZjNLKcHPT6iADzZNLiGQQTAdB04t89/1O/w1cDnyilFU=')
 # Channel Secret
 handler = WebhookHandler('b0428cbb30597d2668de5b08d62d68d7')
+# User ID
+user_id = 'U97cbe7589f49376ffa8a40727b4bf0e2'
 
 
 # listen all post requests from /callback
@@ -33,10 +35,12 @@ def callback():
 
 @handler.add(MessageEvent, message=TextMessage)
 def handle_message(event):
+    # push message to one user
+    hello_message = TextSendMessage(text='What\'s your name?')
+    line_bot_api.push_message(user_id, hello_message)
+
     message = TextSendMessage(text=event.message.text)
-    line_bot_api.reply_message(
-        event.reply_token,
-        message)
+    line_bot_api.reply_message(event.reply_token, message)
 
 
 if __name__ == "__main__":
