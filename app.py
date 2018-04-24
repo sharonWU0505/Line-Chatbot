@@ -66,7 +66,7 @@ def handle_message(event):
             template=ButtonsTemplate(
                 thumbnail_image_url='https://i.imgur.com/zjN1Pul.jpg',
                 title='Internship in Gliacloud',
-                text='I was an intern engineer in Gliacloud.\nSelect topics to know more.',
+                text='Select topics you like.',
                 actions=[
                     MessageTemplateAction(
                         label='Gliacloud',
@@ -85,30 +85,6 @@ def handle_message(event):
         )
         line_bot_api.reply_message(event.reply_token, message)
         return 0
-        # message = TemplateSendMessage(
-        #     alt_text='Internship in Gliacloud',
-        #     template=ButtonsTemplate(
-        #         title='Internship in Gliacloud',
-        #         text='I was an intern engineer in Gliacloud.\nSelect topics to know more.',
-        #         thumbnail_image_url='https://i.imgur.com/zjN1Pul.jpg',
-        #         actions=[
-        #             MessageTemplateAction(
-        #                 label='Gliacloud',
-        #                 text='Tell me more about Gliacloud.'
-        #             ),
-        #             MessageTemplateAction(
-        #                 label='Achievements',
-        #                 text='Tell me your achievements.'
-        #             ),
-        #             MessageTemplateAction(
-        #                 label='Reflection',
-        #                 text='Tell me your reflection.'
-        #             )
-        #         ]
-        #     )
-        # )
-        # line_bot_api.reply_message(event.reply_token, message)
-        # return 0
 
     elif 'gliacloud' in text:
         content = 'Gliacloud is a startup developing AI video creation platform. You could find more information on their website:\nhttps://www.gliacloud.com/'
@@ -131,7 +107,7 @@ def handle_message(event):
             template=ButtonsTemplate(
                 thumbnail_image_url='https://i.imgur.com/zjN1Pul.jpg',
                 title='My Works',
-                text='Yes, I have joined two projects. Select the one you would like to know.',
+                text='Select to know these projects.',
                 actions=[
                     MessageTemplateAction(
                         label='UP YOUNG Maintenance Staff System',
@@ -150,26 +126,6 @@ def handle_message(event):
         )
         line_bot_api.reply_message(event.reply_token, message)
         return 0
-        # message = TemplateSendMessage(
-        #     alt_text='My Works',
-        #     template=ButtonsTemplate(
-        #         thumbnail_image_url='https://i.imgur.com/zjN1Pul.jpg',
-        #         title='My Works',
-        #         text='Yes, I have joined two projects. Select the one you would like to know.',
-        #         actions=[
-        #             MessageTemplateAction(
-        #                 label='UP YOUNG Maintenance Staff System',
-        #                 text='UP YOUNG Maintenance Staff System'
-        #             ),
-        #             MessageTemplateAction(
-        #                 label='Trisoap Sales System',
-        #                 text='Trisoap Sales System'
-        #             )
-        #         ]
-        #     )
-        # )
-        # line_bot_api.reply_message(event.reply_token, message)
-        # return 0
 
     elif 'up young' in text:
         content = 'UP YOUNG is a washing machine dealer with many customers.\n\nWhat we do is to digitize and optimize the workflow of their maintenance staff who have to check whether each washing machine works well.\n\nWe developed optimized algorithm for scheduling and traveling route, in order to suggest best schedule for maintenance staff members.'
@@ -185,10 +141,10 @@ def handle_message(event):
 
     elif 'this might be something interesting in your school life' in text:
         message = TemplateSendMessage(
-            alt_text='It\'s film about my extracurricular activities.',
+            alt_text='Extracurricular Activities',
             template=ButtonsTemplate(
-                title='It\'s film about my extracurricular activities.',
-                text='Select the part you would like to know.',
+                title='Extracurricular Activities',
+                text='Please select.',
                 thumbnail_image_url='https://i.imgur.com/zjN1Pul.jpg',
                 actions=[
                     MessageTemplateAction(
@@ -265,11 +221,11 @@ def handle_message(event):
 
     else:
         message = TemplateSendMessage(
-            alt_text='Chat with me by choosing a movie.',
+            alt_text='Chat we me by...',
             template=ButtonsTemplate(
                 thumbnail_image_url='https://i.imgur.com/zjN1Pul.jpg',
-                title='Chat with me by choosing a movie.',
-                text='Please select.',
+                title='Chat we me by...',
+                text='Choosing a movie',
                 actions=[
                     MessageTemplateAction(
                         label='The Study Diaries',
