@@ -66,7 +66,7 @@ def handle_message(event):
             template=ButtonsTemplate(
                 title='Internship in Gliacloud',
                 text='I was an intern engineer in Gliacloud.\nSelect topics to know more.',
-                thumbnail_image_url='https://i.imgur.com/3DxUPmi.png',
+                thumbnail_image_url='https://i.imgur.com/zjN1Pul.jpg',
                 actions=[
                     MessageTemplateAction(
                         label='Gliacloud',
@@ -105,7 +105,7 @@ def handle_message(event):
         message = TemplateSendMessage(
             alt_text='My Works',
             template=ButtonsTemplate(
-                thumbnail_image_url='https://i.imgur.com/nhX3VEW.jpg',
+                thumbnail_image_url='https://i.imgur.com/zjN1Pul.jpg',
                 title='My Works',
                 text='Yes, I have joined two projects. Select the one you would like to know.',
                 actions=[
@@ -141,7 +141,7 @@ def handle_message(event):
             template=ButtonsTemplate(
                 title='It\'s film about my extracurricular activities.',
                 text='Select the part you would like to know.',
-                thumbnail_image_url='https://i.imgur.com/oSKlcJi.jpg',
+                thumbnail_image_url='https://i.imgur.com/zjN1Pul.jpg',
                 actions=[
                     MessageTemplateAction(
                         label='Art Exhibition',
@@ -219,7 +219,7 @@ def handle_message(event):
         message = TemplateSendMessage(
             alt_text='Chat with me by choosing a movie.',
             template=ButtonsTemplate(
-                thumbnail_image_url='https://i.imgur.com/Hjho3XV.jpg',
+                thumbnail_image_url='https://i.imgur.com/zjN1Pul.jpg',
                 title='Chat with me by choosing a movie.',
                 text='Please select.',
                 actions=[
