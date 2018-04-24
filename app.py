@@ -110,16 +110,12 @@ def handle_message(event):
                 text='Pleas select',
                 actions=[
                     MessageTemplateAction(
-                        label='UP YOUNG Maintenance Staff System',
-                        text='UP YOUNG Maintenance Staff System'
+                        label='UP YOUNG System',
+                        text='UP YOUNG System'
                     ),
                     MessageTemplateAction(
-                        label='Trisoap Sales System',
-                        text='Trisoap Sales System'
-                    ),
-                    MessageTemplateAction(
-                        label='Reflection',
-                        text='Tell me your reflection.'
+                        label='Trisoap System',
+                        text='Trisoap System'
                     ),
                 ]
             )
@@ -128,12 +124,12 @@ def handle_message(event):
         return 0
 
     elif 'up young' in text:
-        content = 'UP YOUNG is a washing machine dealer with many customers.\n\nWhat we do is to digitize and optimize the workflow of their maintenance staff who have to check whether each washing machine works well.\n\nWe developed optimized algorithm for scheduling and traveling route, in order to suggest best schedule for maintenance staff members.'
+        content = '[UP YOUNG Maintenance Staff System]\nUP YOUNG is a washing machine dealer with many customers.\n\nWhat we do is to digitize and optimize the workflow of their maintenance staff who have to check whether each washing machine works well.\n\nWe developed optimized algorithm for scheduling and traveling route, in order to suggest best schedule for maintenance staff members.'
         line_bot_api.reply_message(event.reply_token, TextSendMessage(text=content))
         return 0
 
     elif 'trisoap' in text:
-        tri_content = 'Trisoap is a brand dedicated to sale soap made by mentally retarded children.\n\nWe collected their system demand by face-to-face interview and designed an appropriate system.\nFinally, we developed the online purchasing system, including connecting with third-party payment service and build admin interface for managers.'
+        tri_content = '[Trisoap Sales System]\nTrisoap is a brand dedicated to sale soap made by mentally retarded children.\n\nWe collected their system demand by face-to-face interview and designed an appropriate system.\nFinally, we developed the online purchasing system, including connecting with third-party payment service and build admin interface for managers.'
         link = 'You can see the website here:\nhttps://www.trisoap.com.tw/'
         content = '{}\n\n{}'.format(tri_content, link)
         line_bot_api.reply_message(event.reply_token, TextSendMessage(text=content))
@@ -221,35 +217,35 @@ def handle_message(event):
 
     else:
         message = TemplateSendMessage(
-            alt_text='Chat with me',
+            alt_text='Chat with me by...',
             template=ButtonsTemplate(
                 thumbnail_image_url='https://i.imgur.com/zjN1Pul.jpg',
-                title='Chat with me',
-                text='Choose one',
+                title='Chat with me by...',
+                text='Choose a movie',
                 actions=[
                     MessageTemplateAction(
                         label='The Study Diaries',
-                        text='What is "The Study Diaries" about?'
+                        text='The Study Diaries'
                     ),
                     MessageTemplateAction(
                         label='The Intern',
-                        text='I want to watch "The Intern".'
+                        text='The Intern'
                     ),
                     MessageTemplateAction(
                         label='Project Hunting',
-                        text='Is this about the projects you\'ve made?'
+                        text='Project Hunting'
                     ),
                     MessageTemplateAction(
                         label='School Musical',
-                        text='This might be something interesting in your school life.'
+                        text='School Musical'
                     ),
                     MessageTemplateAction(
                         label='Is Not Enough',
-                        text='Can I know more about you from this film?'
+                        text='Is Not Enough'
                     ),
                     MessageTemplateAction(
                         label='Contact',
-                        text='Watch "Contact" to know how to contact.'
+                        text='Contact'
                     ),
                 ]
             )
