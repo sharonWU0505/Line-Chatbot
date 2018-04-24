@@ -1,10 +1,10 @@
 from flask import Flask, request, abort
 from linebot import LineBotApi, WebhookHandler
-from linebot.exceptions import InvalidSignatureError, LineBotApiError
-from linebot.models import (MessageEvent, TextMessage, TextSendMessage,\
-                            ImageSendMessage, TemplateSendMessage, ButtonsTemplate,\
-                            MessageTemplateAction)
+from linebot.exceptions import InvalidSignatureError
+from linebot.models import (MessageEvent, TextMessage, TextSendMessage, TemplateSendMessage, \
+                            ButtonsTemplate, MessageTemplateAction)
 import os
+import random
 
 app = Flask(__name__)
 
@@ -215,44 +215,19 @@ def handle_message(event):
         line_bot_api.reply_message(event.reply_token, TextSendMessage(text=content))
         return 0
 
-    content = 'Nice to meet you.\nPlease chat with me by choosing a movie from the menu.'
-    line_bot_api.reply_message(event.reply_token, TextSendMessage(text=content))
+    random_set = [
+        "Nice to meet you.\nPlease chat with me by choosing a movie from the menu.",
+        "Hi!\nChoose a movie from the menu to know more about me.",
+        "Dear friend, select a movie you interested in from the menu.",
+        "Are you ready for a movie? Choose one from the menu.",
+        "Come on! Select a movie from the menu to talk with me.",
+        "Come with me and select a movie you may like from the menu!",
+        "Glad to see you. Watch movies to know more about me.",
+    ]
 
-    # message = TemplateSendMessage(
-    #     alt_text='Chat with me by...',
-    #     template=ButtonsTemplate(
-    #         thumbnail_image_url='https://i.imgur.com/Hjho3XV.jpg',
-    #         title='Chat with me by...',
-    #         text='Choose a movie',
-    #         actions=[
-    #             MessageTemplateAction(
-    #                 label='Study Diaries',
-    #                 text='The Study Diaries'
-    #             ),
-    #             MessageTemplateAction(
-    #                 label='The Intern',
-    #                 text='The Intern'
-    #             ),
-    #             MessageTemplateAction(
-    #                 label='Project Hunting',
-    #                 text='Project Hunting'
-    #             ),
-    #             MessageTemplateAction(
-    #                 label='School Musical',
-    #                 text='School Musical'
-    #             ),
-    #             MessageTemplateAction(
-    #                 label='Is Not Enough',
-    #                 text='Is Not Enough'
-    #             ),
-    #             MessageTemplateAction(
-    #                 label='Contact',
-    #                 text='Contact'
-    #             ),
-    #         ]
-    #     )
-    # )
-    # line_bot_api.reply_message(event.reply_token, message)
+    secure_random = random.SystemRandom()
+    content = secure_random.choice(random_set)
+    line_bot_api.reply_message(event.reply_token, TextSendMessage(text=content))
 
 
 if __name__ == "__main__":
